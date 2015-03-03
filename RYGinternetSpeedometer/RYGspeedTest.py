@@ -28,13 +28,13 @@ while 1:
 	pypruss.open(0)										# Open PRU event 0 which is PRU0_ARM_INTERRUPT
 	pypruss.pruintc_init()								# Initiate the interrupt controller
 
-	if percentChange < -15:
+	if percentChange < -10:
 		pypruss.exec_program(0,"./red.bin")				# Indicate worst case
 	else: 
-		if percentChange < -5:
+		if percentChange < -2:
 			pypruss.exec_program(0,"./yellow.bin") 		# Indicate moderate case
 		else:
-			if percentChange > -5:
+			if percentChange > -2:
 				pypruss.exec_program(0,"./green.bin")	# Indicate good case
 			else:
 				pypruss.exec_program(0,"./other.bin")   # Exception handle
