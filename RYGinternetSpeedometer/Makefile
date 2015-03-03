@@ -1,8 +1,7 @@
 
 COMPILER=../../PASM/pasm -b 
-SOURCES=blue.p \
-		green.p \
-		orange.p \
+SOURCES=green.p \
+		yellow.p \
 		other.p \
 		red.p
 
