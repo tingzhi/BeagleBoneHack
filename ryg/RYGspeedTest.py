@@ -27,28 +27,16 @@ while 1:
 	pypruss.open(0)										# Open PRU event 0 which is PRU0_ARM_INTERRUPT
 	pypruss.pruintc_init()								# Init the interrupt controller
 
-	if percentChange < -5:
+	if percentChange < -20:
 		pypruss.exec_program(0,"./red.bin")
 	else: 
-		if percentChange < 0:
-			pypruss.exec_program(0,"./orange.bin")
+		if percentChange < -5:
+			pypruss.exec_program(0,"./yellow.bin")
 		else:
-			if percentChange > 0:
+			if percentChange > -5:
 				pypruss.exec_program(0,"./green.bin")
 			else:
 				pypruss.exec_program(0,"./other.bin")   #should never hit this
-
-
-	if percentChange < -20:
-		output red led
-	else:
-		if percentChange < 0:
-			output yellow
-		else:
-			if percentChange > 0:
-				output green led
-			else:
-				output other led
 		
 	pypruss.wait_for_event(0)							# Wait for event 0 which is connected to PRU0_ARM_INTERRUPT
 	pypruss.clear_event(0)								# Clear the event

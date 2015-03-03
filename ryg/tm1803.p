@@ -23,12 +23,12 @@ LOOP:
  */
 .macro SEND_0
     // T0H
-    SET OUT_PIN         // set HIGH
-    DELAY_CYCLES 140    // delay for 0.7us
+    //SET OUT_PIN         // set HIGH
+    //DELAY_CYCLES 140    // delay for 0.7us
 
     // T0L
     CLR OUT_PIN         // clear to LOW
-    DELAY_CYCLES 360    // delay for 1.8us
+    //DELAY_CYCLES 360    // delay for 1.8us
 .endm
 
 /*
@@ -38,16 +38,17 @@ LOOP:
 .macro SEND_1
     // T1H
     SET OUT_PIN         // set HIGH
-    DELAY_CYCLES 360    // delay for 1.8us
+    //DELAY_CYCLES 360    // delay for 1.8us
 
     // T1L
-    CLR OUT_PIN         // clear to LOW
-    DELAY_CYCLES 140    // delay for 0.7us
+    //CLR OUT_PIN         // clear to LOW
+    //DELAY_CYCLES 140    // delay for 0.7us
 .endm
 
 /*
  *  SEND_BYTE
  */
+ /*
 .macro SEND_BYTE
 .mparam byte
     mov r2, (byte & 0xFF)       //  a = 0xFF
@@ -67,10 +68,11 @@ loopend:
     QBNE byteloop, r3, 0        //  if ( i != 0 ) goto byteloop
 
 .endm
-
+*/
 /*
  *  SEND_EMPTY_SEGMENTS
  */
+ /*
 .macro SEND_EMPTY_SEGMENTS
 .mparam number_of_segments
     mov r4, (number_of_segments)
@@ -83,7 +85,7 @@ send_segment:
     qbne send_segment, r4, 0
 
 .endm
-
+*/
 /*
  *  SEGMENT_END
  *  delay for 3.25us (650 cycles) in between each segment
@@ -91,14 +93,17 @@ send_segment:
  *  but it mimics the output of the arduino
  *  driver code.
  */
+ /*
 .macro SEGMENT_END
     DELAY_CYCLES 650
 .endm
-
+*/
 /*
  *  SEND_RESET
  */
+ /*
 .macro SEND_RESET
     CLR OUT_PIN                         // clear to LOW
     DELAY_CYCLES 4800                   // delay for 24us to make sure the strip knows we want to set values.
 .endm
+*/
